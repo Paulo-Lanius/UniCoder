@@ -1,0 +1,86 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudIllegalParameters = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = UniCoder
+build_property.RootNamespace = UniCoder
+build_property.ProjectDir = C:\Users\paulo\Projetos\UniCoder\UniCoder\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\paulo\Projetos\UniCoder\UniCoder
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Components/Card.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Components/EncoderDecoderDefault.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFbmNvZGVyRGVjb2RlckRlZmF1bHQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/EliasGamma/EliasGammaDecoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWxpYXNHYW1tYVxFbGlhc0dhbW1hRGVjb2Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/EliasGamma/EliasGammaEncoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWxpYXNHYW1tYVxFbGlhc0dhbW1hRW5jb2Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/FibonacciZeckendorf/FibonacciZeckendorfDecoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlib25hY2NpWmVja2VuZG9yZlxGaWJvbmFjY2laZWNrZW5kb3JmRGVjb2Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/FibonacciZeckendorf/FibonacciZeckendorfEncoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlib25hY2NpWmVja2VuZG9yZlxGaWJvbmFjY2laZWNrZW5kb3JmRW5jb2Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/Golomb/GolombDecoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR29sb21iXEdvbG9tYkRlY29kZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/Golomb/GolombEncoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR29sb21iXEdvbG9tYkVuY29kZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/Huffman/HuffmanDecoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSHVmZm1hblxIdWZmbWFuRGVjb2Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/Huffman/HuffmanEncoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSHVmZm1hblxIdWZmbWFuRW5jb2Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

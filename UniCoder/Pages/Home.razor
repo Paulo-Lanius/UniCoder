@@ -1,0 +1,32 @@
+﻿@page "/"
+@using UniCoder.Components
+
+<PageTitle>UniCoder</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    <MudText Typo="Typo.h3" Align="Align.Center">
+        Codificar
+    </MudText>
+
+    <MudGrid Container Class="mt-4" GutterSize="GutterSize.Small" Justify="Justify.Center">
+        <Card CardRoute="/eliasGamma/encoder" CardIcon="@Icons.Material.Filled.EnhancedEncryption" CardText="Elias-Gamma" />
+        <Card CardRoute="/fiboZecken/encoder" CardIcon="@Icons.Material.Filled.EnhancedEncryption" CardText="Fibonacci/Zeckendorf" />
+        <MudFlexBreak />
+        <Card CardRoute="/golomb/encoder" CardIcon="@Icons.Material.Filled.EnhancedEncryption" CardText="Golomb" />
+        <Card CardRoute="/huffman/encoder" CardIcon="@Icons.Material.Filled.EnhancedEncryption" CardText="Huffman" />
+    </MudGrid>
+</MudContainer>
+
+<MudContainer MaxWidth="MaxWidth.Medium">
+    <MudText Typo="Typo.h3" Align="Align.Center">
+        Decodificar
+    </MudText>
+
+    <MudGrid Container Class="mt-4" GutterSize="GutterSize.Small" Justify="Justify.Center">
+        <Card CardRoute="/eliasGamma/decoder" CardIcon="@Icons.Material.Outlined.NoEncryption" CardText="Elias-Gamma" />
+        <Card CardRoute="/fiboZecken/decoder" CardIcon="@Icons.Material.Outlined.NoEncryption" CardText="Fibonacci/Zeckendorf" />
+        <MudFlexBreak />
+        <Card CardRoute="/golomb/decoder" CardIcon="@Icons.Material.Outlined.NoEncryption" CardText="Golomb" />
+        <Card CardRoute="/huffman/decoder" CardIcon="@Icons.Material.Outlined.NoEncryption" CardText="Huffman" />
+    </MudGrid>
+</MudContainer>
