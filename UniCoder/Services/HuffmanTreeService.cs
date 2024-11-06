@@ -4,8 +4,8 @@
     {
         public char? Character { get; set; }
         public int Frequency { get; set; }
-        public HuffmanNode Left { get; set; }
-        public HuffmanNode Right { get; set; }
+        public HuffmanNode? Left { get; set; }
+        public HuffmanNode? Right { get; set; }
 
         public bool IsLeaf => Left == null && Right == null;
 
@@ -27,7 +27,7 @@
     {
         public static Dictionary<char, string> huffmanDictionary = [];
 
-        static void PrintTree(HuffmanNode node, string indent)
+        static void PrintTree(HuffmanNode? node, string indent)
         {
             if (node == null) return;
 
@@ -60,7 +60,7 @@
             return huffmanCodes;
         }
 
-        static void GenerateCodes(HuffmanNode node, string currentCode, Dictionary<char, string> codes)
+        static void GenerateCodes(HuffmanNode? node, string currentCode, Dictionary<char, string> codes)
         {
             if (node == null) return;
 

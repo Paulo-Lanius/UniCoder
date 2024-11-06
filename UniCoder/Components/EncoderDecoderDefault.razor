@@ -23,8 +23,7 @@
 
     private string _text = "";
     private string _result = "";
-    private string _currentIcon = Icons.Material.Outlined.ChangeCircle;
-    private bool _isOutlined = true;
+    private string _currentIcon = Icons.Material.Outlined.ChangeCircle;   
 
     protected override void OnInitialized() { }
 
@@ -40,12 +39,14 @@
             case TypeAlgorithm.FibonacciZeckendorf:
                 _result = Action == TypeAction.Encode ? EncrypterService.EncodeFibonacciZeckendorf(_text) : DecrypterService.DecodeFibonacciZeckendorf(_text);
                 break;
-            case TypeAlgorithm.Golomb:
-                string v = Action == TypeAction.Encode ? EncrypterService.EncodeGolomb(_text) : DecrypterService.DecodeGolomb(_text);
-                _result = v;
+            case TypeAlgorithm.Golomb:                
+                _result = Action == TypeAction.Encode ? EncrypterService.EncodeGolomb(_text) : DecrypterService.DecodeGolomb(_text); ;
                 break;
             case TypeAlgorithm.EliasGamma:
                 _result = Action == TypeAction.Encode ? EncrypterService.EncodeEliasGamma(_text) : DecrypterService.DecodeEliasGamma(_text);
+                break;
+            case TypeAlgorithm.RRepeat:
+                _result = Action == TypeAction.Encode ? EncrypterService.EncodeRRepeat(_text) : DecrypterService.DecodeRRepeat(_text);
                 break;
             default:
                 _result = "Algoritmo não definido!";

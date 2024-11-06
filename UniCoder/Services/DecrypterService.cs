@@ -6,6 +6,8 @@ namespace UniCoder.Services
     {
         public DecrypterService() { }
 
+        #region GA
+
         public static string DecodeEliasGamma(string encodedText)
         {
             static string EliasGamma(string encodedText, StringBuilder decodedText, int index = 0)
@@ -38,34 +40,6 @@ namespace UniCoder.Services
             }
 
             return EliasGamma(encodedText, new StringBuilder());
-
-            StringBuilder decodedString = new();
-            int index = 0;
-
-            while (index < encodedText.Length)
-            {
-                // Contar o número de zeros antes do primeiro '1'
-                int zeroCount = 0;
-                while (encodedText[index] == '0')
-                {
-                    zeroCount++;
-                    index++;
-                }
-
-                // Incluir o '1' após os zeros
-                index++;
-
-                // Ler o próximo 'zeroCount + 1' bits para obter a parte binária
-                string binaryPart = encodedText.Substring(index, zeroCount + 1);
-                int decodedValue = Convert.ToInt32("1" + binaryPart, 2); // Adicionar '1' porque Elias-Gamma omite o primeiro '1'
-
-                decodedString.Append((char)decodedValue);
-
-                // Avançar no índice
-                index += zeroCount + 1;
-            }
-
-            return decodedString.ToString();
         }
 
         public static string DecodeFibonacciZeckendorf(string encodedText)
@@ -86,7 +60,7 @@ namespace UniCoder.Services
                 List<int> fibonacci = GenerateFibonacci(255); // Até 255, que é o valor máximo do ASCII
                 int ascciValue = 0;
 
-                for (int i = 0; i < codeword.Length-1; i++) // Length-1 para remover o stop bit
+                for (int i = 0; i < codeword.Length - 1; i++) // Length-1 para remover o stop bit
                 {
                     if (codeword[i] == '1')
                     {
@@ -96,7 +70,7 @@ namespace UniCoder.Services
 
                 return ascciValue;
             }
-            
+
             StringBuilder decodedString = new();
             string currentCodeword = "";
 
@@ -154,7 +128,7 @@ namespace UniCoder.Services
         {
             var huffmanDictionary = HuffmanTreeService.huffmanDictionary;
             var huffmanTable = huffmanDictionary.ToDictionary(pair => pair.Value, pair => pair.Key);
-            
+
             StringBuilder decodedString = new();
 
             string currentCode = "";
@@ -170,6 +144,43 @@ namespace UniCoder.Services
 
             if (currentCode != "")
                 throw new ArgumentException("Input codificado inválido.");
+
+            return decodedString.ToString();
+        }
+
+        #endregion
+
+        public static string DecodeRRepeat(string encodedText, int i = 3)
+        {
+            var decodedString = new StringBuilder();
+            var binaryResult = new StringBuilder();
+
+            while (encodedText.Length > 0)
+            {
+                // Caso o texto codificado fuja dos padrões
+                if (encodedText.Length < i)
+                {
+                    return string.Empty;
+                }
+
+                var stringBit = encodedText[..i];
+
+                var mostRepeated = stringBit
+                        .GroupBy(c => c)
+                        .OrderByDescending(g => g.Count())
+                        .First().Key;
+
+                binaryResult.Append(mostRepeated);
+
+                if (binaryResult.Length == 8)
+                {
+                    var asciiValue = Convert.ToInt32(binaryResult.ToString(), 2);
+                    decodedString.Append((char)asciiValue);
+                    binaryResult = new StringBuilder();
+                }
+
+                encodedText = encodedText[3..];
+            }
 
             return decodedString.ToString();
         }

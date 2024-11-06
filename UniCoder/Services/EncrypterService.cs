@@ -7,9 +7,11 @@ namespace UniCoder.Services
     {
         public EncrypterService() { }
 
+        #region GA
+
         public static string EncodeEliasGamma(string text)
         {
-            static string EliasGamma2(int number)
+            static string EliasGamma(int number)
             {
                 StringBuilder encodedText = new();
                 int bitSize = (int)Math.Floor(Math.Log(number, 2));
@@ -32,23 +34,12 @@ namespace UniCoder.Services
                 return encodedText.ToString();
             }
 
-            static string EliasGamma(int number)
-            {
-                if (number <= 0)
-                    throw new ArgumentException("A número inteiro precisa ser positivo");
-
-                string binary = Convert.ToString(number, 2);
-                string prefix = new('0', binary.Length - 1);
-
-                return prefix + binary;
-            }
-
             StringBuilder encodedString = new();
 
             foreach (char c in text)
             {
                 int asciiValue = (int)c;
-                encodedString.Append(EliasGamma2(asciiValue));
+                encodedString.Append(EliasGamma(asciiValue));
             }
 
             return encodedString.ToString();
@@ -154,6 +145,29 @@ namespace UniCoder.Services
                     encodedString.Append(value);
                 else
                     throw new ArgumentException($"Character '{c}' não tem codificação Huffman definida.");
+            }
+
+            return encodedString.ToString();
+        }
+
+        #endregion
+
+        public static string EncodeRRepeat(string text, int i = 3)
+        {
+            var bitsAdjust = 8 * i; // Para manter os valores na casa dos 8 bits sempre
+            var encodedString = new StringBuilder();
+            var one = string.Empty.PadRight(i, '1');
+            var zero = string.Empty.PadRight(i, '0');
+
+            foreach (var c in text)
+            {
+                var asciiValue = (int)c;
+                var binaryAscii = Convert.ToString(asciiValue, 2).PadLeft(bitsAdjust, '0');
+
+                var result = binaryAscii.Replace("1", one);
+                result = result.Replace("0", zero);               
+
+                encodedString.Append(result);
             }
 
             return encodedString.ToString();
