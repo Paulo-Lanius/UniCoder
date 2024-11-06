@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UniCoder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f721268d4c06ce236488535c6affb1e568747788")]
 [assembly: System.Reflection.AssemblyProductAttribute("UniCoder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UniCoder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -81,6 +81,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSHVmZm1hblxIdWZmbWFuRW5jb2Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/RRepeat/RRepeatDecoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJlcGVhdFxSUmVwZWF0RGVjb2Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo/Projetos/UniCoder/UniCoder/Pages/RRepeat/RRepeatEncoder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJlcGVhdFxSUmVwZWF0RW5jb2Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/paulo/Projetos/UniCoder/UniCoder/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
