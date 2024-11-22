@@ -3,4 +3,5 @@ Aplicação para codificação e decodificação de textos em alguns determinado
 
 Projeto em Blazor WebAssembly e .NET 8. <br/>
 Como biblioteca de componentes front-end foi utilizado o MudBlazor.
-![image](https://github.com/user-attachments/assets/792b0021-40ed-452d-8503-eb1718b2853d)
+![image](https://github.com/user-attachments/assets/78f5a7ef-17ee-4b51-a838-ee32eaa0ca4b)
+
