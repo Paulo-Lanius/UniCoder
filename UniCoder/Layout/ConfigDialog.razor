@@ -1,0 +1,25 @@
+﻿@using UniCoder.Enums
+@using UniCoder.Services.Cryptographies
+<MudDialog>
+    <DialogContent>
+        <div class="d-flex flex-column py-1">
+            <MudNumericField Label="I"
+                              @bind-Value="RRepeat_I"
+                              @* Validation=@(orderDetailsValidator.ValidateValue) *@
+                              For="(() => RRepeat_I)" />
+        </div>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="Close">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private TypeAlgorithm type { get; set; }
+    private MudDialogInstance MudDialog { get; set; }
+
+    private int RRepeat_I { get; set; }
+
+    private void Close() => MudDialog.Close(DialogResult.Ok(true));
+}
