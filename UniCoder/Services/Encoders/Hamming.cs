@@ -1,16 +1,16 @@
 ﻿using System.Runtime.Intrinsics.Arm;
 using System.Text;
 
-namespace UniCoder.Services.Cryptographies
+namespace UniCoder.Services.Encoders
 {
-    public class Hamming : ICryptography
+    public class Hamming : IEncoder
     {
-        public string Encrypt(string input)
+        public string Encode(string input)
         {
-            Console.WriteLine($"Criptografia Hamming");
+            Console.WriteLine($"Codificar Hamming");
 
             var bitsAdjust = 8; // Para manter os valores na casa dos 8 bits sempre
-            var EncryptdString = new StringBuilder();
+            var EncodedString = new StringBuilder();
 
             foreach (var c in input)
             {
@@ -29,10 +29,10 @@ namespace UniCoder.Services.Cryptographies
                 result += CalculateT(lastFour, 1, 2, 3).ToString(); // t6
                 result += CalculateT(lastFour, 0, 2, 3).ToString(); // t7
 
-                EncryptdString.Append(result);
+                EncodedString.Append(result);
             }
 
-            return EncryptdString.ToString();
+            return EncodedString.ToString();
         }
 
         private int CalculateT(string bits, int s1, int s2, int s3)
@@ -42,11 +42,11 @@ namespace UniCoder.Services.Cryptographies
                 ^ int.Parse(bits[s3].ToString());
         }
 
-        public string Decrypt(string input)
+        public string Decode(string input)
         {
-            Console.WriteLine($"Descriptografia Hamming");
+            Console.WriteLine($"Decodificar Hamming");
 
-            var DecryptdString = new StringBuilder();
+            var DecodedString = new StringBuilder();
             var binaryResult = new StringBuilder();
 
             while (input.Length > 0)
@@ -71,13 +71,13 @@ namespace UniCoder.Services.Cryptographies
                 binaryResult.Append(TratamentoDeErro(lastFour, !lf_t5, !lf_t6, !lf_t7));
 
                 var asciiValue = Convert.ToInt32(binaryResult.ToString(), 2);
-                DecryptdString.Append((char)asciiValue);
+                DecodedString.Append((char)asciiValue);
                 binaryResult = new StringBuilder();
 
                 input = input[14..];
             }
 
-            return DecryptdString.ToString();
+            return DecodedString.ToString();
         }
 
         private static string TratamentoDeErro(string bits, bool erroT5, bool erroT6, bool erroT7)

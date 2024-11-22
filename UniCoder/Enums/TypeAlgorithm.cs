@@ -25,11 +25,11 @@ namespace UniCoder.Enums
 
     public enum TypeAction
     {
-        [Description("Criptografar")]
-        Encrypt = 1,
+        [Description("Codificar")]
+        Encode = 1,
 
-        [Description("Descriptografar")]
-        Decrypt = 2
+        [Description("Decodificar")]
+        Decode = 2
     }
 
 

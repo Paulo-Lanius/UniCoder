@@ -6,12 +6,12 @@ namespace UniCoder.Services
     {
         public static string Execute(TypeAlgorithm algorithmType, TypeAction actionType, string input)
         {
-            var cryptography = CryptographyFactory.GetCryptography(algorithmType);
+            var encoder = EncoderFactory.GetEncode(algorithmType);
 
             return actionType switch
             {
-                TypeAction.Encrypt => cryptography.Encrypt(input),
-                TypeAction.Decrypt => cryptography.Decrypt(input),
+                TypeAction.Encode => encoder.Encode(input),
+                TypeAction.Decode => encoder.Decode(input),
                 _ => throw new ArgumentException("Unsupported operation type.")
             };
         }

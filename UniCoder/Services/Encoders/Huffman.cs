@@ -1,16 +1,16 @@
 ﻿using System.Text.Json;
 using System.Text;
 
-namespace UniCoder.Services.Cryptographies
+namespace UniCoder.Services.Encoders
 {
-    public class Huffman : ICryptography
+    public class Huffman : IEncoder
     {
-        public string Encrypt(string input)
+        public string Encode(string input)
         {
-            Console.WriteLine($"Criptografia Huffman");
+            Console.WriteLine($"Codificar Huffman");
 
             var huffmanTable = HuffmanTreeService.CreateHuffmanTree(input);
-            StringBuilder EncryptdString = new();
+            StringBuilder EncodedString = new();
 
             var jsonString = JsonSerializer.Serialize(huffmanTable);
             Console.WriteLine(jsonString);
@@ -18,22 +18,22 @@ namespace UniCoder.Services.Cryptographies
             foreach (char c in input)
             {
                 if (huffmanTable.TryGetValue(c, out string? value))
-                    EncryptdString.Append(value);
+                    EncodedString.Append(value);
                 else
                     throw new ArgumentException($"Character '{c}' não tem codificação Huffman definida.");
             }
 
-            return EncryptdString.ToString();
+            return EncodedString.ToString();
         }
 
-        public string Decrypt(string input)
+        public string Decode(string input)
         {
-            Console.WriteLine($"Descriptografia Huffman");
+            Console.WriteLine($"Decodificar Huffman");
 
             var huffmanDictionary = HuffmanTreeService.huffmanDictionary;
             var huffmanTable = huffmanDictionary.ToDictionary(pair => pair.Value, pair => pair.Key);
 
-            StringBuilder DecryptdString = new();
+            StringBuilder DecodedString = new();
 
             string currentCode = "";
             foreach (char bit in input)
@@ -41,7 +41,7 @@ namespace UniCoder.Services.Cryptographies
                 currentCode += bit;
                 if (huffmanTable.TryGetValue(currentCode, out char value))
                 {
-                    DecryptdString.Append(value);
+                    DecodedString.Append(value);
                     currentCode = "";
                 }
             }
@@ -49,7 +49,7 @@ namespace UniCoder.Services.Cryptographies
             if (currentCode != "")
                 throw new ArgumentException("Input codificado inválido.");
 
-            return DecryptdString.ToString();
+            return DecodedString.ToString();
         }
     }
 }

@@ -64,7 +64,7 @@
         set
         {
             _actionSet = value;
-            Action = _actionSet ? TypeAction.Encrypt : TypeAction.Decrypt;
+            Action = _actionSet ? TypeAction.Encode : TypeAction.Decode;
         }
     }
 
@@ -76,7 +76,7 @@
     {
         Algorithm = TypeAlgorithm.EliasGamma;
         ActionSet = true;
-        Action = TypeAction.Encrypt;
+        Action = TypeAction.Encode;
     }
 
     private void SetButtonValue(TypeAlgorithm value)

@@ -1,12 +1,12 @@
 ﻿using System.Text;
 
-namespace UniCoder.Services.Cryptographies
+namespace UniCoder.Services.Encoders
 {
-    public class FibonacciZeckendorf : ICryptography
+    public class FibonacciZeckendorf : IEncoder
     {
-        public string Encrypt(string input)
+        public string Encode(string input)
         {
-            Console.WriteLine($"Criptografia FibonacciZeckendorf");
+            Console.WriteLine($"Codificar FibonacciZeckendorf");
 
             List<int> GenerateFibonacci(int max)
             {
@@ -45,19 +45,19 @@ namespace UniCoder.Services.Cryptographies
                 return codeword.ToString();
             }
 
-            StringBuilder EncryptdString = new();
+            StringBuilder EncodedString = new();
             foreach (char c in input)
             {
                 int asciiValue = (int)c;
-                EncryptdString.Append(Zeckendorf(asciiValue));
+                EncodedString.Append(Zeckendorf(asciiValue));
             }
 
-            return EncryptdString.ToString();
+            return EncodedString.ToString();
         }
 
-        public string Decrypt(string input)
+        public string Decode(string input)
         {
-            Console.WriteLine($"Descriptografia FibonacciZeckendorf");
+            Console.WriteLine($"Decodificar FibonacciZeckendorf");
 
             static List<int> GenerateFibonacci(int max)
             {
@@ -86,7 +86,7 @@ namespace UniCoder.Services.Cryptographies
                 return ascciValue;
             }
 
-            StringBuilder DecryptdString = new();
+            StringBuilder DecodedString = new();
             string currentCodeword = "";
 
             foreach (char bit in input)
@@ -96,12 +96,12 @@ namespace UniCoder.Services.Cryptographies
                 if (currentCodeword.EndsWith("11"))
                 {
                     int asciiValue = Zeckendorf(currentCodeword);
-                    DecryptdString.Append((char)asciiValue);
+                    DecodedString.Append((char)asciiValue);
                     currentCodeword = "";
                 }
             }
 
-            return DecryptdString.ToString();
+            return DecodedString.ToString();
         }
     }
 }

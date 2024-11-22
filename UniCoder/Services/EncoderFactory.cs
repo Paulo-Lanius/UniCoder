@@ -1,11 +1,11 @@
 ﻿using UniCoder.Enums;
-using UniCoder.Services.Cryptographies;
+using UniCoder.Services.Encoders;
 
 namespace UniCoder.Services
 {
-    public class CryptographyFactory
+    public class EncoderFactory
     {
-        private static readonly Dictionary<TypeAlgorithm, Type> _cryptographyMap = new()
+        private static readonly Dictionary<TypeAlgorithm, Type> _encoderMap = new()
         {
             { TypeAlgorithm.EliasGamma, typeof(EliasGamma) },
             { TypeAlgorithm.FibonacciZeckendorf, typeof(FibonacciZeckendorf) },
@@ -15,13 +15,13 @@ namespace UniCoder.Services
             { TypeAlgorithm.Hamming, typeof(Hamming) }
         };
 
-        public static ICryptography GetCryptography(TypeAlgorithm type)
+        public static IEncoder GetEncode(TypeAlgorithm type)
         {
-            if (_cryptographyMap.TryGetValue(type, out var cryptoClassType))
+            if (_encoderMap.TryGetValue(type, out var encodeClassType))
             {
-                return (ICryptography)Activator.CreateInstance(cryptoClassType);
+                return (IEncoder)Activator.CreateInstance(encodeClassType);
             }
-            throw new ArgumentException("Unsupported cryptography type.");
+            throw new ArgumentException("Unsupported Encode type.");
         }
     }
 }

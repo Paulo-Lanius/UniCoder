@@ -1,17 +1,17 @@
 ﻿using System.Text;
 
-namespace UniCoder.Services.Cryptographies
+namespace UniCoder.Services.Encoders
 {
-    public class RRepeat : ICryptography
+    public class RRepeat : IEncoder
     {
         public int i = 3;
 
-        public string Encrypt(string input)
+        public string Encode(string input)
         {
-            Console.WriteLine($"Criptografia RRepeat");
+            Console.WriteLine($"Codificar RRepeat");
 
             var bitsAdjust = 8 * i; // Para manter os valores na casa dos 8 bits sempre
-            var EncryptdString = new StringBuilder();
+            var EncodedString = new StringBuilder();
             var one = string.Empty.PadRight(i, '1');
             var zero = string.Empty.PadRight(i, '0');
 
@@ -23,17 +23,17 @@ namespace UniCoder.Services.Cryptographies
                 var result = binaryAscii.Replace("1", one);
                 result = result.Replace("0", zero);
 
-                EncryptdString.Append(result);
+                EncodedString.Append(result);
             }
 
-            return EncryptdString.ToString();
+            return EncodedString.ToString();
         }
 
-        public string Decrypt(string input)
+        public string Decode(string input)
         {
-            Console.WriteLine($"Descriptografia RRepeat");
+            Console.WriteLine($"Decodificar RRepeat");
 
-            var DecryptdString = new StringBuilder();
+            var DecodedString = new StringBuilder();
             var binaryResult = new StringBuilder();
 
             while (input.Length > 0)
@@ -56,14 +56,14 @@ namespace UniCoder.Services.Cryptographies
                 if (binaryResult.Length == 8)
                 {
                     var asciiValue = Convert.ToInt32(binaryResult.ToString(), 2);
-                    DecryptdString.Append((char)asciiValue);
+                    DecodedString.Append((char)asciiValue);
                     binaryResult = new StringBuilder();
                 }
 
                 input = input[3..];
             }
 
-            return DecryptdString.ToString();
+            return DecodedString.ToString();
         }
     }
 }

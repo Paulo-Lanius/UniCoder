@@ -1,61 +1,61 @@
 ﻿using System.Text;
 
-namespace UniCoder.Services.Cryptographies
+namespace UniCoder.Services.Encoders
 {
-    public class EliasGamma : ICryptography
+    public class EliasGamma : IEncoder
     {
-        public string Encrypt(string input)
+        public string Encode(string input)
         {
-            Console.WriteLine($"Criptografia EliasGamma");
+            Console.WriteLine($"Codificar EliasGamma");
 
             static string EliasGamma(int number)
             {
-                StringBuilder EncryptdText = new();
+                StringBuilder EncodedText = new();
                 int bitSize = (int)Math.Floor(Math.Log(number, 2));
 
                 // Prefixo
                 for (int i = 0; i < bitSize; i++)
                 {
-                    EncryptdText.Append('0');
+                    EncodedText.Append('0');
                 }
 
                 // StopBit
-                EncryptdText.Append('1');
+                EncodedText.Append('1');
 
                 // Sufix
                 int sufixInt = number - (int)Math.Pow(2, bitSize);
                 string sufixBinary = Convert.ToString(sufixInt, 2);
                 sufixBinary = sufixBinary.PadLeft(bitSize, '0'); // Ajusta o sufixo para o tamanho correto de bits
-                EncryptdText.Append(sufixBinary);
+                EncodedText.Append(sufixBinary);
 
-                return EncryptdText.ToString();
+                return EncodedText.ToString();
             }
 
-            StringBuilder EncryptdString = new();
+            StringBuilder EncodedString = new();
 
             foreach (char c in input)
             {
                 int asciiValue = (int)c;
-                EncryptdString.Append(EliasGamma(asciiValue));
+                EncodedString.Append(EliasGamma(asciiValue));
             }
 
-            return EncryptdString.ToString();
+            return EncodedString.ToString();
         }
 
-        public string Decrypt(string input)
+        public string Decode(string input)
         {
-            Console.WriteLine($"Descriptografia EliasGamma");
+            Console.WriteLine($"Decodificar EliasGamma");
 
-            static string EliasGamma(string EncryptdText, StringBuilder DecryptdText, int index = 0)
+            static string EliasGamma(string EncodedText, StringBuilder DecodedText, int index = 0)
             {
-                if (index >= EncryptdText.Length)
+                if (index >= EncodedText.Length)
                 {
-                    return DecryptdText.ToString();
+                    return DecodedText.ToString();
                 }
 
                 // Prefixo
                 int nPrefix = 0;
-                while (EncryptdText[index] == '0')
+                while (EncodedText[index] == '0')
                 {
                     nPrefix++;
                     index++;
@@ -66,13 +66,13 @@ namespace UniCoder.Services.Cryptographies
                 index++;
 
                 // Sufixo
-                string sufixBits = EncryptdText.Substring(index, nPrefix);
+                string sufixBits = EncodedText.Substring(index, nPrefix);
                 int sufix = Convert.ToInt32(sufixBits, 2);
                 index += nPrefix;
 
-                DecryptdText.Append((char)(prefix + sufix));
+                DecodedText.Append((char)(prefix + sufix));
 
-                return EliasGamma(EncryptdText, DecryptdText, index);
+                return EliasGamma(EncodedText, DecodedText, index);
             }
 
             return EliasGamma(input, new StringBuilder());
